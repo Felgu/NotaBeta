@@ -4,21 +4,24 @@ import Footer from '../components/Footer';
 import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSyringe, faFileMedical, FaHospitalAlt, FaHeartbeat } from 'react-icons/fa';
+import { icon } from '@fortawesome/fontawesome-svg-core';
 
 const Page = () => {
   const [hovered, setHovered] = useState(null);
 
   // Liste des gabarits, incluant les nouveaux services spécifiques
   const templates = [
-    { id: 1, name: 'Gabarit de Soins', description: 'Suivi des soins quotidiens', image: '/images/window.svg', link: '/soins' },
-    { id: 2, name: 'Gabarit Médical', description: 'Historique médical du patient', image: '/images/globe.svg', link: '/medical' },
+    { id: 1, name: 'Gabarit de Soins', description: 'Suivi des soins quotidiens', icon: <FontAwesomeIcon icon="fa-solid fa-notes-medical" />, link: '/soins' },
+    { id: 2, name: 'Gabarit Médical', description: 'Historique médical du patient', icon: <FontAwesomeIcon icon={icon} />, link: '/medical' },
     { id: 3, name: 'Gabarit Chirurgical', description: 'Suivi des interventions chirurgicales', image: '/images/file.svg', link: '/chirurgical' },
-    { id: 4, name: 'Infection Urinaire', description: 'Suivi des infections urinaires', image: '/images/infection.svg', link: '/infectionUrinaire' },
-    { id: 5, name: 'Céphalée', description: 'Suivi des céphalées', image: '/images/cephalee.svg', link: '/gabarit-cephalee' },
-    { id: 6, name: 'Santé Préventive', description: 'Suivi de la santé préventive', image: '/images/sante-preventive.svg', link: '/preventive' },
-    { id: 7, name: 'Suivi Diabétique', description: 'Suivi des patients diabétiques', image: '/images/diabete.svg', link: '/diabete' },
-    { id: 8, name: 'Suivi Pédiatrique', description: 'Suivi médical des enfants', image: '/images/pediatrique.svg', link: '/pediatrique' },
-    { id: 9, name: 'Suivi Psychologique', description: 'Suivi pour troubles psychiatriques', image: '/images/psy.svg', link: '/depression-anxiete' },
+    { id: 4, name: 'Infection Urinaire', description: 'Suivi des infections urinaires', icon: <faSyringe size={40} />, link: '/infectionUrinaire' },
+    { id: 5, name: 'Céphalée', description: 'Suivi des céphalées', icon: <faSyringe size={40} />, link: '/gabarit-cephalee' },
+    { id: 6, name: 'Santé Préventive', description: 'Suivi de la santé préventive', icon: <faSyringe size={40} />, link: '/preventive' },
+    { id: 7, name: 'Suivi Diabétique', description: 'Suivi des patients diabétiques', icon: <FaHospitalAlt size={40} />, link: '/diabete' },
+    { id: 8, name: 'Suivi Pédiatrique', description: 'Suivi médical des enfants', icon: <faFileMedical size={40} />, link: '/pediatrique' },
+    { id: 9, name: 'Suivi Psychologique', description: 'Suivi pour troubles psychiatriques', icon: <FontAwesomeIcon faSyringe size={40} />, link: '/depression-anxiete' },
   ];
 
   return (
