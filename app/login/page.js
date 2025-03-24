@@ -1,49 +1,54 @@
 "use client";
-import { useState } from 'react';
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { signInWithEmailAndPassword } from "firebase/auth"; // Importer la fonction d'authentification de Firebase
+import { auth } from "../../lib/firebase"; // Importer l'authentification Firebase depuis le fichier firebase.js
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // Pour gérer le chargement
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const validateForm = () => {
     // Validation basique de l'email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setError('Veuillez entrer un email valide.');
+      setError("Veuillez entrer un email valide.");
       return false;
     }
 
     // Validation du mot de passe (longueur minimale)
     if (password.length < 6) {
-      setError('Le mot de passe doit contenir au moins 6 caractères.');
+      setError("Le mot de passe doit contenir au moins 6 caractères.");
       return false;
     }
 
-    setError(''); // Si tout est valide, réinitialise l'erreur
+    setError(""); // Si tout est valide, réinitialise l'erreur
     return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!validateForm()) return;
 
     setIsLoading(true); // Indiquer que la requête est en cours
-    setTimeout(() => {
-      // Simuler un délai pour la connexion (simule un appel API)
-      if (email === 'user@example.com' && password === 'password123') {
-        // Rediriger vers la page d'accueil après la connexion réussie
-        router.push('/');
-      } else {
-        setError('Email ou mot de passe incorrect');
-        setIsLoading(false); // Revenir à l'état initial en cas d'erreur
-      }
-    }, 1500); // Délai de 1.5 secondes pour simuler le processus de connexion
+    try {
+      // Utiliser Firebase pour se connecter
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      
+      // Si l'utilisateur est connecté avec succès, rediriger vers la page d'accueil
+      router.push("/");
+    } catch (err) {
+      // Gérer les erreurs, comme email ou mot de passe incorrect
+      setError("Email ou mot de passe incorrect");
+      setIsLoading(false); // Revenir à l'état initial en cas d'erreur
+    }
   };
 
   return (
@@ -77,7 +82,7 @@ const Login = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-2 p-3 w-full border border-gray-300 rounded-lg"
+              className="mt-2 p-3 w-full text-[#00171f] text-lg border border-gray-300 rounded-lg"
               placeholder="Votre email"
             />
           </div>
@@ -94,7 +99,7 @@ const Login = () => {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-2 p-3 w-full border border-gray-300 rounded-lg"
+              className="mt-2 p-3 w-full text-[#00171f] border border-gray-300 rounded-lg"
               placeholder="Votre mot de passe"
             />
           </div>
@@ -105,17 +110,17 @@ const Login = () => {
               type="submit"
               disabled={isLoading} // Désactive le bouton pendant le chargement
               className={`px-6 py-3 ${
-                isLoading ? 'bg-gray-500 cursor-not-allowed' : 'bg-[#154c79]'
+                isLoading ? "bg-gray-500 cursor-not-allowed" : "bg-[#154c79]"
               } text-white font-semibold rounded-lg hover:bg-[#1e81b0] transition-colors`}
             >
-              {isLoading ? 'Chargement...' : 'Se connecter'}
+              {isLoading ? "Chargement..." : "Se connecter"}
             </button>
           </div>
 
           {/* Lien vers la page d'inscription */}
           <p className="mt-4 text-gray-600">
-            Pas de compte ?{' '}
-            <a href="/signup" className="text-blue-700 hover:underline">
+            Pas de compte ?{" "}
+            <a href="/signup" className="text-[#0A7BA7] text-lg text-bold hover:underline">
               Créez un compte ici
             </a>
           </p>
