@@ -1,5 +1,5 @@
 // app/about.js
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/Navbar1';
 import Footer from '../../components/Footer';
 import Image from 'next/image';
 

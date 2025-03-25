@@ -1,7 +1,7 @@
 "use client"; // Utilisation de la fonctionnalité client-side de Next.js
 
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar1';
 import Footer from '../components/Footer';
 
 const GabaritCephalee = () => {

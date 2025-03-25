@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/Navbar1';
 import Footer from '../../components/Footer';
 import { db, auth } from '../../lib/firebase';  // Assure-toi que tu as correctement initialisé Firestore et l'authentification Firebase
 import { doc, setDoc, getDoc, collection, addDoc, updateDoc } from 'firebase/firestore';

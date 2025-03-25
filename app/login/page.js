@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword } from "firebase/auth"; // Importer la fonction d'authentification de Firebase
 import { auth } from "../../lib/firebase"; // Importer l'authentification Firebase depuis le fichier firebase.js
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar1";
 import Footer from "../../components/Footer";
 
 const Login = () => {
