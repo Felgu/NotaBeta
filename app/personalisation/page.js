@@ -1,11 +1,12 @@
 "use client";
 import { useState, useEffect } from 'react';
-import Navbar from '../../components/Navbar1';
+import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { db, auth } from '../../lib/firebase';  // Assure-toi que tu as correctement initialisé Firestore et l'authentification Firebase
 import { doc, setDoc, getDoc, collection, addDoc, updateDoc } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
 import { onAuthStateChanged } from 'firebase/auth';
+import Link from "next/link";
 
 const Personnalisation = () => {
   const [user, setUser] = useState(null);
@@ -98,11 +99,11 @@ const Personnalisation = () => {
             value={newTemplateName}
             onChange={(e) => setNewTemplateName(e.target.value)}
             placeholder="Nom du nouveau gabarit"
-            className="p-4 border border-gray-300 text-[#01070C] text-lg rounded-lg w-full"
+            className="p-4 border border-gray-300 text-[#021C31] text-lg rounded-lg w-full"
           />
           <button
             onClick={handleCreateTemplate}
-            className="mt-4 px-6 py-3 bg-[#022F53] text-white rounded-lg"
+            className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg"
           >
             Créer un nouveau gabarit
           </button>

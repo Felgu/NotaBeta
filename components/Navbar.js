@@ -1,4 +1,4 @@
-import Link from 'next/lik';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
