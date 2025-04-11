@@ -10,3 +10,4 @@ Clonez le projet et installez les dépendances :
 git clone https://github.com:Felgu/NotaBeta.git
 cd NotaBeta
 npm install
+```

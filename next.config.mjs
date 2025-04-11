@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true, // Mode strict pour le rendu de React
+  reactStrictMode: true,
   images: {
     domains: ['exemple.com', 'autre-site.com'],
   },
@@ -13,7 +13,6 @@ const nextConfig = {
       },
     ];
   },
-  
 };
 
 export default nextConfig;
