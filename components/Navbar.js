@@ -36,7 +36,9 @@ const Navbar = () => {
   return (
     <nav className="bg-[#0f81ab] p-14 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
-        <span className="text-white text-4xl font-semibold hover:text-yellow-400">Notitia</span>
+        <span className="text-white text-4xl font-semibold hover:text-yellow-400">
+          Notitia
+        </span>
         <div className="space-x-16">
           {isAuthenticated ? (
             <>
