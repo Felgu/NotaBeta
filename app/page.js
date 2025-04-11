@@ -13,15 +13,15 @@ const Page = () => {
 
   // Liste des gabarits, incluant les nouveaux services spécifiques
   const templates = [
-    { id: 1, name: 'Gabarit de Soins', description: 'Suivi des soins quotidiens', icon: <FontAwesomeIcon icon="fa-solid fa-notes-medical" />, link: '/soins' },
-    { id: 2, name: 'Gabarit Médical', description: 'Historique médical du patient', icon: <FontAwesomeIcon icon={icon} />, link: '/medical' },
-    { id: 3, name: 'Gabarit Chirurgical', description: 'Suivi des interventions chirurgicales', image: '/images/file.svg', link: '/chirurgical' },
-    { id: 4, name: 'Infection Urinaire', description: 'Suivi des infections urinaires', icon: <faSyringe size={40} />, link: '/infectionUrinaire' },
-    { id: 5, name: 'Céphalée', description: 'Suivi des céphalées', icon: <faSyringe size={40} />, link: '/gabarit-cephalee' },
-    { id: 6, name: 'Santé Préventive', description: 'Suivi de la santé préventive', icon: <faSyringe size={40} />, link: '/preventive' },
-    { id: 7, name: 'Suivi Diabétique', description: 'Suivi des patients diabétiques', icon: <FaHospitalAlt size={40} />, link: '/diabete' },
-    { id: 8, name: 'Suivi Pédiatrique', description: 'Suivi médical des enfants', icon: <faFileMedical size={40} />, link: '/pediatrique' },
-    { id: 9, name: 'Suivi Psychologique', description: 'Suivi pour troubles psychiatriques', icon: <FontAwesomeIcon faSyringe size={40} />, link: '/depression-anxiete' },
+    { id: 1, name: 'Gabarit de Soins', description: 'Suivi des soins quotidiens', image: '/images/healthy.svg', link: '/soins' },
+    { id: 2, name: 'Gabarit Médical', description: 'Historique médical du patient', image: '/images/vaccin.png', link: '/medical' },
+    { id: 3, name: 'Gabarit Chirurgical', description: 'Suivi des interventions chirurgicales', image: '/images/seringue.jpg', link: '/chirurgical' },
+    { id: 4, name: 'Infection Urinaire', description: 'Suivi des infections urinaires', image: '/images/virune.svg', link: '/infectionUrinaire' },
+    { id: 5, name: 'Céphalée', description: 'Suivi des céphalées', image: '/images/fever.svg', link: '/gabarit-cephalee' },
+    { id: 6, name: 'Santé Préventive', description: 'Suivi de la santé préventive', image: '/images/brain.svg', link: '/preventive' },
+    { id: 7, name: 'Suivi Diabétique', description: 'Suivi des patients diabétiques', image: '/images/diabetes.svg', link: '/diabete' },
+    { id: 8, name: 'Suivi Pédiatrique', description: 'Suivi médical des enfants', image: '/images/pediatrie.svg', link: '/pediatrique' },
+    { id: 9, name: 'Suivi Psychologique', description: 'Suivi pour troubles psychiatriques', image: '/images/psychology.svg', link: '/depression-anxiete' },
   ];
 
   return (
@@ -41,7 +41,7 @@ const Page = () => {
           {templates.map((template) => (
             <div
               key={template.id}
-              className="relative p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 transform hover:bg-yellow-100"
+              className="relative p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 transform hover:bg-[#0f81ab]"
               onMouseEnter={() => setHovered(template.id)}
               onMouseLeave={() => setHovered(null)}
             >

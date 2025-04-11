@@ -34,9 +34,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#22577a] p-4 shadow-md">
+    <nav className="bg-[#0f81ab] p-14 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
-        <span className="text-white text-4xl font-semibold">Notitia</span>
+        <span className="text-white text-4xl font-semibold hover:text-yellow-400">Notitia</span>
         <div className="space-x-16">
           {isAuthenticated ? (
             <>
@@ -62,11 +62,11 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link href="/" className="text-white hover:text-yellow-400">Accueil</Link>
-              <Link href="/about" className="text-white hover:text-yellow-400">À propos</Link>
-              <Link href="/contact" className="text-white hover:text-yellow-400">Contact</Link>
-              <Link href="/login" className="text-white bg-[#79154c] p-4 rounded-lg hover:text-[#ffffff] hover:bg-[#e28743]">Se connecter</Link>
-              <Link href="/signup" className="text-white bg-[#747915] p-4 rounded-lg hover:text-[#ffffff]">Créer un compte</Link>
+              <Link href="/" className="text-2xl text-white hover:text-[#eca72c]">Accueil</Link>
+              <Link href="/about" className="text-2xl text-white hover:text-yellow-400">À propos</Link>
+              <Link href="/contact" className="text-2xl text-white hover:text-yellow-400">Contact</Link>
+              <Link href="/login" className="text-2xl text-white bg-[#2198ED] p-4 rounded-lg hover:text-[#ffffff] hover:bg-[#e28743]">Se connecter</Link>
+              <Link href="/signup" className="text-2xl text-white bg-[#1e479a] p-4 rounded-lg hover:text-[#ffffff] hover:bg-[#e28743]">Créer un compte</Link>
             </>
           )}
         </div>
